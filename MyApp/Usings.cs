@@ -1,5 +1,6 @@
 ﻿global using System.Collections.ObjectModel;
-global using System.ComponentModel;
+global using System.Reactive;
+global using System.Reactive.Linq;
 
 global using MyApp.Models;
 global using MyApp.ViewModels;

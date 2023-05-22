@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MyApp.ViewModels"
+             x:Class="MyApp.Views.PickerWorkaroundPage"
+             x:DataType="{x:Type vm:PickerWorkaroundPageViewModel}"
+             Title="PickerWorkaroundPage">
+    <VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding AccountList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type vm:AccountEditViewModel}">
+                    <Grid ColumnDefinitions="70,250,250,250">
+                        <Entry Grid.Column="0"
+                                Text="{Binding Account.Number}" />
+                        <Entry Grid.Column="1"
+                                Text="{Binding Account.Name}" />
+                        <Picker Grid.Column="2"
+                                ItemsSource="{Binding CategoryNames}"
+                                SelectedItem="{Binding Account.CategoryName}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

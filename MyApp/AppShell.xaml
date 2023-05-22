@@ -14,6 +14,10 @@
         ContentTemplate="{DataTemplate local:MainPage}"        
         Route="MainPage" />
     <ShellContent
+        Title="Picker Workaround"
+        ContentTemplate="{DataTemplate views:PickerWorkaroundPage}"
+        Route="PickerWorkaroundPage"/>
+    <ShellContent
         Title="Binding Source"
         ContentTemplate="{DataTemplate views:BindingSourcePage}"
         Route="BindingSourcePage" />

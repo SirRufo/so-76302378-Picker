@@ -20,6 +20,7 @@ public static class MauiProgram
             .AddTransient<MainPage>().AddTransient<MainPageViewModel>()
             .AddTransient<AccountPage>().AddTransient<AccountPageViewModel>()
             .AddTransient<BindingSourcePage>().AddTransient<BindingSourcePageViewModel>()
+            .AddTransient<PickerWorkaroundPage>().AddTransient<PickerWorkaroundPageViewModel>()
             ;
 
         Routing.RegisterRoute( "account", typeof( AccountPage ) );
