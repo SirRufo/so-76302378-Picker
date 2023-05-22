@@ -5,49 +5,17 @@
              xmlns:models="clr-namespace:MyApp.Models"
              x:DataType="{x:Type vm:MainPageViewModel}"
              x:Class="MyApp.MainPage">
-    <ScrollView>
-        <CollectionView ItemsSource="{Binding AccountList}"
-                        SelectedItem="{Binding AccountListSelectedItem}"
-                        WidthRequest="900">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type models:Account}">
-                    <Frame Padding="3" Margin="1" HeightRequest="60">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="70"/>
-                                <ColumnDefinition Width="250"/>
-                                <ColumnDefinition Width="250"/>
-                            </Grid.ColumnDefinitions>
+        
+    <HorizontalStackLayout Grid.Row="2"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Spacing="20">
 
-                            <Entry Grid.Column="0"
-                                   Text="{Binding Number}"
-                                   MaxLength="8"
-                                   FontSize="11" 
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="Center" />
+        <Button Text="Case 1" Clicked="Case1Button_Clicked" />
+        <Button Text="Case 2" Clicked="Case2Button_Clicked"/>
+        <Button Text="Case 3" Clicked="Case3Button_Clicked"/>
+        <Button Text="Case 4" Clicked="Case4Button_Clicked"/>
 
-                            <Entry Grid.Column="1"
-                                   Text="{Binding Name}"
-                                   ToolTipProperties.Text="{Binding Name}"
-                                   FontSize="11"
-                                   HorizontalTextAlignment="Start"
-                                   VerticalTextAlignment="Center"
-                                   Margin="3,0,0,0"/>
+    </HorizontalStackLayout>
 
-                            <Picker Grid.Column="2"
-                                    FontSize="11"
-                                    WidthRequest="250"
-                                    HeightRequest="50"
-                                    Margin="5,0,0,0"
-                                    HorizontalTextAlignment="Start"
-                                    VerticalTextAlignment="Center"
-                                    SelectedItem="{Binding CategoryName}"                                    
-                                    ItemsSource="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=CategoryNames}"/>
-
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </ScrollView>
 </ContentPage>

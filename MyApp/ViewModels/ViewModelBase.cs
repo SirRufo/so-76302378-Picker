@@ -1,6 +1,6 @@
 ﻿namespace MyApp.ViewModels;
 
-public class ViewModelBase
+public class ViewModelBase : ReactiveObject
 {
     [Reactive] public bool IsInitialized { get; private set; }
 

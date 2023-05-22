@@ -18,7 +18,10 @@ public static class MauiProgram
         builder.Services
             .AddSingleton<AppShell>().AddSingleton<AppShellViewModel>()
             .AddTransient<MainPage>().AddTransient<MainPageViewModel>()
+            .AddTransient<AccountPage>().AddTransient<AccountPageViewModel>()
             ;
+
+        Routing.RegisterRoute( "account", typeof( AccountPage ) );
 
 #if DEBUG
         builder.Logging.AddDebug();

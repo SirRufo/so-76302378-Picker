@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.AccountPage"
+             xmlns:vm="clr-namespace:MyApp.ViewModels"
+             xmlns:models="clr-namespace:MyApp.Models"
+             x:DataType="{x:Type vm:AccountPageViewModel}"
+             Title="AccountPage">
+    <Grid RowDefinitions="Auto,*,Auto">
+        
+        <VerticalStackLayout Grid.Row="0">
+
+            <Label Text="{Binding Case}"/>
+
+            <Label Text="Binding to a single Account instance"/>
+
+            <Grid ColumnDefinitions="70,250,250,250">
+                <Entry Text="{Binding Account.Number}"
+                       Grid.Column="0"/>
+                <Entry Text="{Binding Account.Name}"
+                       Grid.Column="1"/>
+                <Picker ItemsSource="{Binding CategoryNames}"
+                        SelectedItem="{Binding Account.CategoryName}"
+                        Grid.Column="2"/>
+            </Grid>
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1">
+            <Label Text="Binding to Account collection"/>
+            <CollectionView ItemsSource="{Binding AccountList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type models:Account}">
+                        <Grid ColumnDefinitions="70,250,250,250">
+
+                            <Entry Text="{Binding Number}"
+                                   Grid.Column="0"/>
+
+                            <Entry Text="{Binding Name}"
+                                   Grid.Column="1"/>
+
+                            <Picker ItemsSource="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=CategoryNames}"
+                                    SelectedItem="{Binding CategoryName}"
+                                    Grid.Column="2"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+    </Grid></ContentPage>
