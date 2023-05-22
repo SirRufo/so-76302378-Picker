@@ -9,27 +9,21 @@
         <Label Text="Direct Binding"/>
         <Entry Text="{Binding Value}"/>
         <Line/>
-        <Label Text="Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type vm:BindingSourcePageViewModel}}, Path=Value"/>
-        <Entry Text="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type vm:BindingSourcePageViewModel}}, Path=Value}"/>
+        <Label Text="Binding Source={RelativeSource AncestorType={x:Type vm:BindingSourcePageViewModel}}, Path=Value"/>
+        <Entry Text="{Binding Source={RelativeSource AncestorType={x:Type vm:BindingSourcePageViewModel}}, Path=Value}"/>
         <Line/>
         <Label Text="Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.Value"/>
         <Entry Text="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.Value}"/>
-        <Line/>
-        <Label Text="Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type ContentPage}}, Path=Value"/>
-        <Entry Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type ContentPage}}, Path=Value}"/>
         <Label Text="CollectionView:" FontAttributes="Bold" FontSize="Title"/>
         <CollectionView ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout>
-                        <Label Text="Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type vm:BindingSourcePageViewModel}}, Path=Value"/>
-                        <Entry Text="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type vm:BindingSourcePageViewModel}}, Path=Value}"/>
+                        <Label Text="Binding Source={RelativeSource AncestorType={x:Type vm:BindingSourcePageViewModel}}, Path=Value"/>
+                        <Entry Text="{Binding Source={RelativeSource AncestorType={x:Type vm:BindingSourcePageViewModel}}, Path=Value}"/>
                         <Line/>
-                        <Label Text="Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.Value"/>
-                        <Entry Text="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.Value}"/>
-                        <Line/>
-                        <Label Text="Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type ContentPage}}, Path=Value"/>
-                        <Entry Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type ContentPage}}, Path=Value}"/>
+                        <Label Text="Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.Value"/>
+                        <Entry Text="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.Value}"/>
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
