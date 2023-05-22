@@ -10,8 +10,6 @@
         
         <VerticalStackLayout Grid.Row="0">
 
-            <Label Text="{Binding Case}"/>
-
             <Label Text="Binding to a single Account instance"/>
 
             <Grid ColumnDefinitions="70,250,250,250">
@@ -48,5 +46,13 @@
             </CollectionView>
 
         </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="2"
+                               Spacing="20">
+            <Button Text="Reload Account" Command="{Binding ReloadAccountCommand}"/>
+            <Button Text="Reload AccountList" Command="{Binding ReloadAccountListCommand}"/>
+            <Button Text="Reload CategoryNames" Command="{Binding ReloadCategoryNamesCommand}"/>
+        </HorizontalStackLayout>
+
 
     </Grid></ContentPage>

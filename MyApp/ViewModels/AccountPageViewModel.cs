@@ -1,4 +1,6 @@
-﻿namespace MyApp.ViewModels;
+﻿using System.Reactive;
+
+namespace MyApp.ViewModels;
 
 [QueryProperty( nameof( Case ), "case" )]
 public class AccountPageViewModel : ViewModelBase
@@ -8,6 +10,17 @@ public class AccountPageViewModel : ViewModelBase
     [Reactive] public Account Account { get; set; }
 
     [Reactive] public string Case { get; set; }
+
+    public ReactiveCommand<Unit, Unit> ReloadCategoryNamesCommand { get; }
+    public ReactiveCommand<Unit, Unit> ReloadAccountCommand { get; }
+    public ReactiveCommand<Unit, Unit> ReloadAccountListCommand { get; }
+
+    public AccountPageViewModel()
+    {
+        ReloadCategoryNamesCommand = ReactiveCommand.CreateFromTask( PopulateCategoryNamesAsync );
+        ReloadAccountCommand = ReactiveCommand.CreateFromTask( PopulateAccountAsync );
+        ReloadAccountListCommand = ReactiveCommand.CreateFromTask( PopulateAccountListAsync );
+    }
 
     protected override async Task OnInitializeAsync( CancellationToken cancellationToken )
     {
