@@ -3,14 +3,19 @@
     x:Class="MyApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MyApp.Views"
     xmlns:vm="clr-namespace:MyApp.ViewModels"
     x:DataType="{x:Type vm:AppShellViewModel}"
     xmlns:local="clr-namespace:MyApp"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="Home"
+        Title="Picker"
         ContentTemplate="{DataTemplate local:MainPage}"        
         Route="MainPage" />
+    <ShellContent
+        Title="Binding Source"
+        ContentTemplate="{DataTemplate views:BindingSourcePage}"
+        Route="BindingSourcePage" />
 
 </Shell>

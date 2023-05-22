@@ -19,6 +19,7 @@ public static class MauiProgram
             .AddSingleton<AppShell>().AddSingleton<AppShellViewModel>()
             .AddTransient<MainPage>().AddTransient<MainPageViewModel>()
             .AddTransient<AccountPage>().AddTransient<AccountPageViewModel>()
+            .AddTransient<BindingSourcePage>().AddTransient<BindingSourcePageViewModel>()
             ;
 
         Routing.RegisterRoute( "account", typeof( AccountPage ) );

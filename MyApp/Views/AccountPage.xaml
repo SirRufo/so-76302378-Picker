@@ -37,7 +37,7 @@
                             <Entry Text="{Binding Name}"
                                    Grid.Column="1"/>
 
-                            <Picker ItemsSource="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.CategoryNames}"
+                            <Picker ItemsSource="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.CategoryNames}"
                                     SelectedItem="{Binding CategoryName}"
                                     Grid.Column="2"/>
                         </Grid>
