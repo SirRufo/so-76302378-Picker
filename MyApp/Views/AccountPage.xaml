@@ -30,10 +30,10 @@
                             <Entry Grid.Column="1"
                                    Text="{Binding Name}" />
                             <Picker Grid.Column="2"
-                                    ItemsSource="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.CategoryNames}"
+                                    ItemsSource="{Binding Source={RelativeSource AncestorType={x:Type vm:AccountPageViewModel}}, Path=CategoryNames}"
                                     SelectedItem="{Binding CategoryName}" />
                             <Label Grid.Column="3"
-                                   Text="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.CategoryNames}" />
+                                   Text="{Binding Source={RelativeSource AncestorType={x:Type vm:AccountPageViewModel}}, Path=CategoryNames}" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
