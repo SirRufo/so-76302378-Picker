@@ -1,60 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Class="MyApp.Views.AccountPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyApp.Views.AccountPage"
-             xmlns:vm="clr-namespace:MyApp.ViewModels"
              xmlns:models="clr-namespace:MyApp.Models"
-             x:DataType="{x:Type vm:AccountPageViewModel}"
-             Title="AccountPage">
+             xmlns:vm="clr-namespace:MyApp.ViewModels"
+             Title="AccountPage"
+             x:DataType="{x:Type vm:AccountPageViewModel}">
     <Grid RowDefinitions="Auto,*,*,Auto">
-        
         <VerticalStackLayout Grid.Row="0">
-
-            <Label Text="Binding to a single Account instance"/>
-
+            <Label Text="Binding to a single Account instance" />
             <Grid ColumnDefinitions="70,250,250,250">
-                <Entry Text="{Binding Account.Number}"
-                       Grid.Column="0"/>
-                <Entry Text="{Binding Account.Name}"
-                       Grid.Column="1"/>
-                <Picker ItemsSource="{Binding CategoryNames}"
-                        SelectedItem="{Binding Account.CategoryName}"
-                        Grid.Column="2"/>
+                <Entry Grid.Column="0"
+                       Text="{Binding Account.Number}" />
+                <Entry Grid.Column="1"
+                       Text="{Binding Account.Name}" />
+                <Picker Grid.Column="2"
+                        ItemsSource="{Binding CategoryNames}"
+                        SelectedItem="{Binding Account.CategoryName}" />
             </Grid>
-
         </VerticalStackLayout>
-
         <VerticalStackLayout Grid.Row="1">
-            <Label Text="Binding to Account collection"/>
+            <Label Text="Binding to Account collection" />
             <CollectionView ItemsSource="{Binding AccountList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type models:Account}">
                         <Grid ColumnDefinitions="70,250,250,250">
-
-                            <Entry Text="{Binding Number}"
-                                   Grid.Column="0"/>
-
-                            <Entry Text="{Binding Name}"
-                                   Grid.Column="1"/>
-
-                            <Picker ItemsSource="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.CategoryNames}"
-                                    SelectedItem="{Binding CategoryName}"
-                                    Grid.Column="2"/>
+                            <Entry Grid.Column="0"
+                                   Text="{Binding Number}" />
+                            <Entry Grid.Column="1"
+                                   Text="{Binding Name}" />
+                            <Picker Grid.Column="2"
+                                    ItemsSource="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.CategoryNames}"
+                                    SelectedItem="{Binding CategoryName}" />
+                            <Label Grid.Column="3"
+                                   Text="{Binding Source={RelativeSource Mode=FindAncestor, AncestorType={x:Type ContentPage}}, Path=BindingContext.CategoryNames}" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </VerticalStackLayout>
-
         <ListView Grid.Row="2"
-                  ItemsSource="{Binding Protocol}"/>
-
+                  ItemsSource="{Binding Protocol}" />
         <HorizontalStackLayout Grid.Row="3"
                                Spacing="20">
-            <Button Text="Reload CategoryNames" Command="{Binding ReloadCategoryNamesCommand}"/>
-            <Button Text="Reload Account" Command="{Binding ReloadAccountCommand}"/>
-            <Button Text="Reload AccountList" Command="{Binding ReloadAccountListCommand}"/>
+            <Button Command="{Binding ReloadCategoryNamesCommand}"
+                    Text="Reload CategoryNames" />
+            <Button Command="{Binding ReloadAccountCommand}"
+                    Text="Reload Account" />
+            <Button Command="{Binding ReloadAccountListCommand}"
+                    Text="Reload AccountList" />
         </HorizontalStackLayout>
-
-
-    </Grid></ContentPage>
+    </Grid>
+</ContentPage>
