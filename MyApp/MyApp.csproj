@@ -52,4 +52,10 @@
 		<PackageReference Include="ReactiveUI.Fody" Version="18.4.44" />
 		<PackageReference Include="ReactiveUI.Maui" Version="18.4.44" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="ViewModels\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
 </Project>

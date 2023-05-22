@@ -4,9 +4,11 @@ public partial class MainPage : ContentPage
 {
     int count = 0;
 
-    public MainPage()
+    public MainPage( MainPageViewModel viewModel )
     {
         InitializeComponent();
+        BindingContext = viewModel;
+        Appearing += async ( s, e ) => await viewModel.InitializeAsync();
     }
 
     private void OnCounterClicked( object sender, EventArgs e )
