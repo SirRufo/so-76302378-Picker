@@ -12,9 +12,9 @@ public class MainPageViewModel : ViewModelBase
         AccountList = new ObservableCollection<Account>(
             new[]
             {
-                new Account { Category = "cat 1", Name = "name 1", Number = "001", },
-                new Account { Category = "cat 1", Name = "name 2", Number = "002", },
-                new Account { Category = "cat 2", Name = "name 3", Number = "003", },
+                new Account { CategoryName = "cat 1", Name = "name 1", Number = "001", },
+                new Account { CategoryName = "cat 1", Name = "name 2", Number = "002", },
+                new Account { CategoryName = "cat 2", Name = "name 3", Number = "003", },
             } );
 
         CategoryNames = new ObservableCollection<string>(

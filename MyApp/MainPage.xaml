@@ -2,17 +2,52 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:MyApp.ViewModels"
+             xmlns:models="clr-namespace:MyApp.Models"
              x:DataType="{x:Type vm:MainPageViewModel}"
              x:Class="MyApp.MainPage">
-
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+        <CollectionView ItemsSource="{Binding AccountList}"
+                        SelectedItem="{Binding AccountListSelectedItem}"
+                        WidthRequest="900">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:Account}">
+                    <Frame Padding="3" Margin="1" HeightRequest="60">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
 
-        </VerticalStackLayout>
+                            <Entry Grid.Column="0"
+                                   Text="{Binding Number}"
+                                   MaxLength="8"
+                                   FontSize="11" 
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center" />
+
+                            <Entry Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   ToolTipProperties.Text="{Binding Name}"
+                                   FontSize="11"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   Margin="3,0,0,0"/>
+
+                            <Picker Grid.Column="2"
+                                    FontSize="11"
+                                    WidthRequest="250"
+                                    HeightRequest="50"
+                                    Margin="5,0,0,0"
+                                    HorizontalTextAlignment="Start"
+                                    VerticalTextAlignment="Center"
+                                    SelectedItem="{Binding CategoryName}"                                    
+                                    ItemsSource="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=CategoryNames}"/>
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ScrollView>
-
 </ContentPage>
-
