@@ -1,4 +1,6 @@
-﻿namespace MyApp;
+﻿using System.Reactive;
+
+namespace MyApp;
 
 public partial class MainPage : ContentPage
 {
@@ -28,4 +30,10 @@ public partial class MainPage : ContentPage
     {
         await Shell.Current.GoToAsync( "account?case=4" );
     }
+
+    async void Case5Button_Clicked( System.Object sender, System.EventArgs e )
+    {
+        await Shell.Current.GoToAsync( "account?case=5" );
+    }
+
 }

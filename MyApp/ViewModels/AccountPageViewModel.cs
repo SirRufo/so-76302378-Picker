@@ -10,6 +10,7 @@ public class AccountPageViewModel : ViewModelBase
     [Reactive] public Account Account { get; set; }
 
     [Reactive] public string Case { get; set; }
+    public ObservableCollection<string> Protocol { get; } = new();
 
     public ReactiveCommand<Unit, Unit> ReloadCategoryNamesCommand { get; }
     public ReactiveCommand<Unit, Unit> ReloadAccountCommand { get; }
@@ -30,29 +31,43 @@ public class AccountPageViewModel : ViewModelBase
         {
             case "1":
                 await PopulateAccountAsync();
-                await PopulateCategoryNamesAsync();
                 await PopulateAccountListAsync();
+                await PopulateCategoryNamesAsync();
                 break;
             case "2":
-                await PopulateAccountListAsync();
                 await PopulateAccountAsync();
                 await PopulateCategoryNamesAsync();
+                await PopulateAccountListAsync();
                 break;
             case "3":
-                await PopulateAccountListAsync();
                 await PopulateCategoryNamesAsync();
                 await PopulateAccountAsync();
+                await PopulateAccountListAsync();
+                break;
+            case "4":
+                await PopulateCategoryNamesAsync();
+                await PopulateAccountAsync();
+                await Task.Delay( 20 );
+                await PopulateAccountListAsync();
+                await Task.Delay( 20 );
+                break;
+            case "5":
+                await PopulateCategoryNamesAsync();
+                await PopulateAccountAsync();
+                await Task.Delay( 20 );
+                await PopulateAccountListAsync();
+                await Task.Delay( 20 );
+                await PopulateAccountListAsync();
+                await Task.Delay( 20 );
                 break;
             default:
-                await PopulateCategoryNamesAsync();
-                await PopulateAccountAsync();
-                await PopulateAccountListAsync();
                 break;
         }
     }
 
     protected Task PopulateCategoryNamesAsync()
     {
+        Protocol.Add( "Populate CategoryNames" );
         CategoryNames = new ObservableCollection<string>(
             new[]
             {
@@ -65,12 +80,14 @@ public class AccountPageViewModel : ViewModelBase
 
     protected Task PopulateAccountAsync()
     {
+        Protocol.Add( "Populate Account" );
         Account = new Account { CategoryName = "cat 2", Name = "name 4", Number = "004", };
         return Task.CompletedTask;
     }
 
     protected Task PopulateAccountListAsync()
     {
+        Protocol.Add( "Populate AccountList" );
         AccountList = new ObservableCollection<Account>(
             new[]
             {
@@ -78,7 +95,6 @@ public class AccountPageViewModel : ViewModelBase
                 new Account { CategoryName = "cat 1", Name = "name 2", Number = "002", },
                 new Account { CategoryName = "cat 2", Name = "name 3", Number = "003", },
             } );
-
         return Task.CompletedTask;
     }
 }

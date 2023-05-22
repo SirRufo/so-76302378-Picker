@@ -2,19 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:MyApp.ViewModels"
-             xmlns:models="clr-namespace:MyApp.Models"
+             xmlns:models="clr-namespace:MyApp.Models"             
              x:DataType="{x:Type vm:MainPageViewModel}"
-             x:Class="MyApp.MainPage">
+             x:Class="MyApp.MainPage">    
         
     <HorizontalStackLayout Grid.Row="2"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
                            Spacing="20">
 
-        <Button Text="Case 1" Clicked="Case1Button_Clicked" />
+        <Button Text="Case 1" Clicked="Case1Button_Clicked"/>
         <Button Text="Case 2" Clicked="Case2Button_Clicked"/>
         <Button Text="Case 3" Clicked="Case3Button_Clicked"/>
         <Button Text="Case 4" Clicked="Case4Button_Clicked"/>
+        <Button Text="Case 5" Clicked="Case5Button_Clicked"/>
 
     </HorizontalStackLayout>
 
